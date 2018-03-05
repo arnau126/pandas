@@ -2604,11 +2604,14 @@ class SeriesPlotMethods(BasePlotMethods):
 
     def kde(self, bw_method=None, ind=None, **kwds):
         """
-        Kernel Density Estimate plot
+        Kernel Density Estimate plot.
+
+        In statistics, kernel density estimation (KDE) is a non-parametric way
+        to estimate the probability density function of a random variable.
 
         Parameters
         ----------
-        bw_method: str, scalar or callable, optional
+        bw_method : str, scalar or callable, optional
             The method used to calculate the estimator bandwidth.  This can be
             'scott', 'silverman', a scalar constant or a callable.
             If None (default), 'scott' is used.
@@ -2618,12 +2621,17 @@ class SeriesPlotMethods(BasePlotMethods):
             are used. If `ind` is a NumPy array, the kde is evaluated at the
             points passed. If `ind` is an integer, `ind` number of equally
             spaced points are used.
-        `**kwds` : optional
+        kwds
             Keyword arguments to pass on to :py:meth:`pandas.Series.plot`.
 
         Returns
         -------
         axes : matplotlib.AxesSubplot or np.array of them
+
+        Examples
+        --------
+        >>> s = pd.Series([1, 2, 3, 4])
+        >>> p = s.plot.kde()
         """
         return self(kind='kde', bw_method=bw_method, ind=ind, **kwds)
 
